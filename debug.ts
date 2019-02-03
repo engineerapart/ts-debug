@@ -19,6 +19,10 @@ export class Debugger implements Console {
     public assert(value?, message?: string, ...optionalParams: any[]): void {
         return this.doIfEnabled(() => this.console.assert(value, message, ...optionalParams));
     }
+    
+    public countReset(label?: string): void {
+        return this.doIfEnabled(() => this.console.countReset(label));
+    }
 
     public dir(obj: any, options?: { showHidden?: boolean; depth?: number; colors?: boolean }): void;
     public dir(value?: any, ...optionalParams: any[]): void;
@@ -50,6 +54,10 @@ export class Debugger implements Console {
         return this.doIfEnabled(() => this.console.timeEnd(label));
     }
 
+    public timeLog(label: string, ...data: any[]): void {
+        return this.doIfEnabled(() => this.console.timeLog(label, data));
+    }
+    
     public timeStamp(label: string): void;
     public timeStamp(timerName?: string): void;
     public timeStamp(label?: string): void {
